@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :api do
+    namespace :v1 do
+      resources :coaches, only: [:index] do
+        get :available_slots, on: :collection
+      end
+      resources :appointments, only: [:create]
+    end
+  end
 end

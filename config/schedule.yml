@@ -1,0 +1,4 @@
+execute_create_weekly_time_slots_job:
+  cron: "0 1 * * SUN"
+  class: "CreateWeeklyTimeSlotsJob"
+  queue: default

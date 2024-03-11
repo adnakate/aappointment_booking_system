@@ -27,8 +27,7 @@ ActiveRecord::Schema.define(version: 2024_03_11_073801) do
   end
 
   create_table "coaches", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.string "name"
     t.string "email"
     t.bigint "time_zone_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -47,8 +46,8 @@ ActiveRecord::Schema.define(version: 2024_03_11_073801) do
   create_table "time_slots", force: :cascade do |t|
     t.bigint "coach_id", null: false
     t.date "date"
-    t.time "start_time"
-    t.time "end_time"
+    t.string "start_time"
+    t.string "end_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["coach_id"], name: "index_time_slots_on_coach_id"
@@ -63,8 +62,8 @@ ActiveRecord::Schema.define(version: 2024_03_11_073801) do
   create_table "weekly_schedules", force: :cascade do |t|
     t.bigint "coach_id", null: false
     t.integer "day_of_week"
-    t.time "available_at"
-    t.time "available_until"
+    t.string "available_at"
+    t.string "available_until"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["coach_id"], name: "index_weekly_schedules_on_coach_id"
